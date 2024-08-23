@@ -10,28 +10,22 @@
         [disabled]="isDisabled"
         class="w-full">
         
-        <!-- Trigger for selected options, shows selected items as chips -->
         <mat-select-trigger>
           <ng-container *ngIf="selectedOptions.value?.length">
             <div class="flex flex-wrap gap-2">
-              <!-- Iterate over selected options and display them as chips -->
               <mat-chip *ngFor="let option of selectedOptions.value" class="flex items-center">
                 {{ option }}
-                <!-- Remove option icon -->
                 <mat-icon (click)="removeOption(option)" class="ml-2 cursor-pointer">cancel</mat-icon>
               </mat-chip>
             </div>
           </ng-container>
-          <!-- Placeholder text when no options are selected -->
           <span *ngIf="!selectedOptions.value?.length">کاربری های مجاز جایگاه</span>
         </mat-select-trigger>
   
-        <!-- Search input inside the dropdown -->
         <mat-option>
           <ngx-mat-select-search [formControl]="searchCtrl"></ngx-mat-select-search>
         </mat-option>
         
-        <!-- List of filtered options -->
         <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
           {{ option }}
         </mat-option>

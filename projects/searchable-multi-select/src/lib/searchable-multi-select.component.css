@@ -4,38 +4,38 @@
 @tailwind utilities;
 
 .mat-form-field {
-    @apply mb-4;  /* Margin bottom */
+    @apply mb-4;  
   }
   
   .mat-select-trigger {
-    @apply flex items-center gap-2;  /* Flex layout and gap between items */
+    @apply flex items-center gap-2;  
   }
   
   .mat-chip {
-    @apply bg-gray-200 text-gray-700 rounded-full px-3 py-1 cursor-pointer;  /* Chip styling */
+    @apply bg-gray-200 text-gray-700 rounded-full px-3 py-1 cursor-pointer;  
   }
   
   .mat-chip:hover {
-    @apply bg-gray-300;  /* Hover state for chips */
+    @apply bg-gray-300; 
   }
   
   .border-blue-500 {
-    @apply border-blue-500;  /* Active border color */
+    @apply border-blue-500;  
   }
   
   .border-green-500 {
-    @apply border-green-500;  /* Valid state border color */
+    @apply border-green-500; 
   }
   
   .cursor-pointer {
-    @apply cursor-pointer;  /* Pointer cursor for clickable items */
+    @apply cursor-pointer; 
   }
   
   .flex-wrap {
-    @apply flex-wrap;  /* Flex wrap for chips */
+    @apply flex-wrap;  
   }
   
   .gap-2 {
-    @apply gap-2;  /* Gap between chips */
+    @apply gap-2;  
   }
   

@@ -9,42 +9,33 @@ import { map, startWith } from 'rxjs/operators';
   styleUrls: ['./searchable-multi-select.component.css']
 })
 export class SearchableMultiSelectComponent implements OnInit {
-  // Form control for selected options with validation
   selectedOptions = new FormControl([], Validators.required);
 
-  // Form control for search input
   searchCtrl = new FormControl('');
 
-  // List of available options
   options: string[] = ['امبولانس', 'سواری', 'تاکسی'];
 
-  // Filtered options based on search input
   filteredOptions!: Observable<string[]>;
 
-  // States
-  isActive: boolean = false;  // Input field active state
-  isDisabled: boolean = false;  // Disabled state
+  isActive: boolean = false;  
+  isDisabled: boolean = false;  
 
   ngOnInit() {
-    // Initialize the filtered options based on the search control's value changes
     this.filteredOptions = this.searchCtrl.valueChanges.pipe(
-      startWith(''),  // Start with an empty string for initial display
-      map(value => this._filter(value || ''))  // Call the filter method
+      startWith(''),  
+      map(value => this._filter(value || ''))  
     );
   }
 
-  // Method to filter options based on search input
   private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();  // Convert input to lowercase for case-insensitive filtering
+    const filterValue = value.toLowerCase();  
     return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
-  // Handle activation of input field (focus event)
   onActivate() {
     this.isActive = true;
   }
 
-  // Handle deactivation of input field (blur event)
   onDeactivate() {
     this.isActive = false;
   }
