@@ -1,6 +1,5 @@
-<div class="w-full p-4">
-    <!-- Material form field with conditional classes for active and valid states -->
-    <mat-form-field class="w-full" [ngClass]="{ 'border-green-500': isValid, 'border-blue-500': isActive }">
+<div class="flex items-center justify-center min-h-screen  rtl">
+    <mat-form-field class="w-full max-w-lg">
       <mat-label>کاربری های مجاز جایگاه</mat-label>
       <mat-select 
         [formControl]="selectedOptions" 
@@ -8,25 +7,28 @@
         (click)="onActivate()" 
         (blur)="onDeactivate()"
         [disabled]="isDisabled"
-        class="w-full">
-        
-        <mat-select-trigger>
+        class="w-full"
+      >
+        <mat-select-trigger class="flex flex-wrap gap-1  rounded border rtl">
           <ng-container *ngIf="selectedOptions.value?.length">
-            <div class="flex flex-wrap gap-2">
-              <mat-chip *ngFor="let option of selectedOptions.value" class="flex items-center">
+            <div class="flex flex-wrap gap-1 rtl">
+              <span 
+                *ngFor="let option of selectedOptions.value" 
+                class=" text-s"
+              >
                 {{ option }}
-                <mat-icon (click)="removeOption(option)" class="ml-2 cursor-pointer">cancel</mat-icon>
-              </mat-chip>
+                <mat-icon 
+                  (click)="removeOption(option, $event)" 
+                  class=" cursor-pointer text-s"
+                >
+                  close
+                </mat-icon>
+              </span>
             </div>
           </ng-container>
           <span *ngIf="!selectedOptions.value?.length">کاربری های مجاز جایگاه</span>
         </mat-select-trigger>
-  
-        <mat-option>
-          <ngx-mat-select-search [formControl]="searchCtrl"></ngx-mat-select-search>
-        </mat-option>
-        
-        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option" class="custom-option">
           {{ option }}
         </mat-option>
       </mat-select>

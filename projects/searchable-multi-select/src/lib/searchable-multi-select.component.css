@@ -1,41 +1,59 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .mat-form-field {
-    @apply mb-4;  
-  }
-  
-  .mat-select-trigger {
-    @apply flex items-center gap-2;  
-  }
-  
-  .mat-chip {
-    @apply bg-gray-200 text-gray-700 rounded-full px-3 py-1 cursor-pointer;  
-  }
-  
-  .mat-chip:hover {
-    @apply bg-gray-300; 
-  }
-  
-  .border-blue-500 {
-    @apply border-blue-500;  
-  }
-  
-  .border-green-500 {
-    @apply border-green-500; 
-  }
-  
-  .cursor-pointer {
-    @apply cursor-pointer; 
-  }
-  
-  .flex-wrap {
-    @apply flex-wrap;  
-  }
-  
-  .gap-2 {
-    @apply gap-2;  
-  }
-  
+    @apply mb-4;
+}
+
+.mat-select-trigger {
+    @apply flex flex-wrap gap-1 p-1 rounded border rtl;
+    background-color: #ffffff;
+    border-color: #e2e8f0;
+    min-height: 48px;
+    max-width: 100%;
+}
+
+.option-circle {
+    @apply inline-flex items-center justify-center bg-gray-200 text-gray-700 rounded-full px-2 py-1 cursor-pointer hover:bg-gray-300 text-xs;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid #e2e8f0;
+    background-color: aqua;
+}
+
+.custom-option .mat-option-checkbox {
+    display: none;
+}
+
+.custom-option {
+    @apply flex items-center;
+    font-size: 0.75rem;
+}
+
+.mat-icon {
+    @apply text-xs;
+    font-size: 0.5rem;
+}
+
+.mat-select-panel {
+    @apply max-w-lg;
+    position: absolute;
+    z-index: 1000;
+    direction: rtl;
+}
+
+.mat-form-field.ng-invalid .mat-form-field-label {
+    color: #f56565;
+}
+
+.mat-form-field.ng-valid .mat-form-field-label {
+    color: #48bb78;
+}
+
+.rtl {
+    direction: rtl;
+    text-align: right;
+}

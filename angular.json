@@ -13,7 +13,6 @@
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "project": "projects/searchable-multi-select/ng-package.json"
-            
           },
           "configurations": {
             "production": {
@@ -59,7 +58,9 @@
               "projects/test-form/src/assets"
             ],
             "styles": [
-              "projects/test-form/src/styles.css"
+              "projects/test-form/src/styles.css",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+
             ],
             "scripts": []
           },
@@ -121,7 +122,8 @@
               "projects/test-form/src/assets"
             ],
             "styles": [
-              "projects/test-form/src/styles.css"
+              "projects/test-form/src/styles.css",
+              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
             ],
             "scripts": []
           }
@@ -132,5 +134,4 @@
   "cli": {
     "analytics": "1ceeb83f-e3ea-4bc9-af64-37e424ee395d"
   }
-  
 }

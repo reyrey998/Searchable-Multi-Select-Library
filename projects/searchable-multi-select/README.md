@@ -1,24 +1,21 @@
 # SearchableMultiSelect
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+`SearchableMultiSelect` is an Angular library designed to enhance multi-select dropdowns with searchable functionality. This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name --project searchable-multi-select` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project searchable-multi-select`.
-> Note: Don't forget to add `--project searchable-multi-select` or else it will be added to the default project in your `angular.json` file. 
+- **Searchable Dropdown**: Easily filter options in the dropdown menu.
+- **Multi-Select**: Select multiple options and display them in a compact, circular format.
+- **Customizable**: Easily style and customize the appearance to fit your needs.
+- **RTL Support**: Fully supports right-to-left (RTL) text direction for internationalization.
 
-## Build
+## Getting Started
 
-Run `ng build searchable-multi-select` to build the project. The build artifacts will be stored in the `dist/` directory.
+To use the `SearchableMultiSelect` library in your Angular project, follow the steps below:
 
-## Publishing
+### Installation
 
-After building your library with `ng build searchable-multi-select`, go to the dist folder `cd dist/searchable-multi-select` and run `npm publish`.
+1. **Install the Library**:
 
-## Running unit tests
-
-Run `ng test searchable-multi-select` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+   ```bash
+   npm install searchable-multi-select
