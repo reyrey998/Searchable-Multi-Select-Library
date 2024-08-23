@@ -1,0 +1,41 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.mat-form-field {
+    @apply mb-4;  /* Margin bottom */
+  }
+  
+  .mat-select-trigger {
+    @apply flex items-center gap-2;  /* Flex layout and gap between items */
+  }
+  
+  .mat-chip {
+    @apply bg-gray-200 text-gray-700 rounded-full px-3 py-1 cursor-pointer;  /* Chip styling */
+  }
+  
+  .mat-chip:hover {
+    @apply bg-gray-300;  /* Hover state for chips */
+  }
+  
+  .border-blue-500 {
+    @apply border-blue-500;  /* Active border color */
+  }
+  
+  .border-green-500 {
+    @apply border-green-500;  /* Valid state border color */
+  }
+  
+  .cursor-pointer {
+    @apply cursor-pointer;  /* Pointer cursor for clickable items */
+  }
+  
+  .flex-wrap {
+    @apply flex-wrap;  /* Flex wrap for chips */
+  }
+  
+  .gap-2 {
+    @apply gap-2;  /* Gap between chips */
+  }
+  

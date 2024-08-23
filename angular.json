@@ -1,7 +1,45 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
+  "version": "1.0.0",
   "newProjectRoot": "projects",
   "projects": {
+    "searchable-multi-select": {
+      "projectType": "library",
+      "root": "projects/searchable-multi-select",
+      "sourceRoot": "projects/searchable-multi-select/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/searchable-multi-select/ng-package.json"
+            
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/searchable-multi-select/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/searchable-multi-select/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/searchable-multi-select/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "1ceeb83f-e3ea-4bc9-af64-37e424ee395d"
   }
+  
 }
