@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormControl, NG_VALIDATORS, Validator } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
@@ -20,18 +20,16 @@ import { map, startWith } from 'rxjs/operators';
     }
   ]
 })
-export class SearchableMultiSelectComponent implements ControlValueAccessor, Validator {
-  writeValue(obj: any): void {
-    throw new Error('Method not implemented.');
-  }
+export class SearchableMultiSelectComponent implements ControlValueAccessor, Validator, OnInit {
+  @Input() label: string = 'کاربری های مجاز جایگاه';
+  @Input() options: string[] = [];
+  @Input() isDisabled: boolean = false;  // Fixed the input property name
+
   selectedOptions: FormControl<string[] | null> = new FormControl([]);
   searchCtrl: FormControl<string | null> = new FormControl('');
-
-  options: string[] = ['امبولانس', 'سواری', 'تاکسی'];
   filteredOptions!: Observable<string[]>;
 
-  isActive: boolean = false;  
-  isDisabled: boolean = false;  
+  isActive: boolean = false;
 
   ngOnInit() {
     this.filteredOptions = this.searchCtrl.valueChanges.pipe(
@@ -55,19 +53,22 @@ export class SearchableMultiSelectComponent implements ControlValueAccessor, Val
 
   removeOption(option: string, event: MouseEvent) {
     event.stopPropagation();
-    const options = this.selectedOptions?.value as string[];
-    if (Array.isArray(options)) {
-      const index = options.indexOf(option);
-      if (index >= 0) {
-        options.splice(index, 1);
-        this.selectedOptions.setValue([...options]); 
-        this.selectedOptions.updateValueAndValidity();
+    if (!this.isDisabled) { // Disable interaction if isDisabled is true
+      const options = this.selectedOptions?.value as string[];
+      if (Array.isArray(options)) {
+        const index = options.indexOf(option);
+        if (index >= 0) {
+          options.splice(index, 1);
+          this.selectedOptions.setValue([...options]);
+          this.selectedOptions.updateValueAndValidity();
+        }
       }
     }
   }
-  Value(value: any): void {
-    if (value) {
-      this.selectedOptions.setValue(value as string[]);
+
+  writeValue(obj: any): void {
+    if (obj) {
+      this.selectedOptions.setValue(obj as string[]);
     }
   }
 
@@ -94,8 +95,4 @@ export class SearchableMultiSelectComponent implements ControlValueAccessor, Val
 
   private onChange = (value: any) => {};
   private onTouched = () => {};
-  
-  get isValid() {
-    return this.selectedOptions.valid;
-  }
 }

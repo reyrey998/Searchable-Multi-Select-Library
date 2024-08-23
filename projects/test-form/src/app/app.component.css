@@ -1,10 +1,19 @@
+/* General container styles */
 
 .container {
-  display: flex;
-  justify-content: center; 
-  align-items: center;    
+  
   min-height: 100vh;      
   background-color: #f0f0f0; 
+  display: block
+  
 }
 
+/* Multi-select styling */
+lib-searchable-multi-select {
+    @apply w-full; /* Full width for the multi-select */
+}
+.button-style{
+    font-size:xx-large;
+    background-color: rgb(86, 209, 211);
+}
 

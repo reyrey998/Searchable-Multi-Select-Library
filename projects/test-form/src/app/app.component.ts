@@ -8,9 +8,11 @@ import { FormControl } from '@angular/forms';
 })
 export class AppComponent {
   myControl = new FormControl([]);
-  
   isDisabled = false;
-  
-  constructor() {
+  options = ['امبولانس', 'سواری', 'تاکسی'];
+  label = 'کاربری های مجاز جایگاه'; // Dynamic label
+
+  toggleDisable() {
+    this.isDisabled = !this.isDisabled;
   }
 }

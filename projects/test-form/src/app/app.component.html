@@ -1,3 +1,20 @@
-<div class="container">
-  <lib-searchable-multi-select [formControl]="myControl"></lib-searchable-multi-select>
+<div class="container mx-auto p-4">
+  <div class="mb-4 py-2">
+    <button
+      (click)="toggleDisable()"
+      class="bg-blue-500 text-white button-style py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+    >
+      {{ isDisabled ? 'فعالسازی' : 'غیرفعالسازی' }} 
+    </button>
+  </div>
+  <div>
+    <lib-searchable-multi-select 
+      [formControl]="myControl" 
+      [options]="options" 
+      [label]="label"
+      [isDisabled]="isDisabled"
+      class="w-full"
+    >
+    </lib-searchable-multi-select>
+  </div>
 </div>

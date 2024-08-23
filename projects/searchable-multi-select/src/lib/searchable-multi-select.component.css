@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Existing styles */
 .mat-form-field {
     @apply mb-4;
 }
@@ -12,16 +9,9 @@
     border-color: #e2e8f0;
     min-height: 48px;
     max-width: 100%;
-}
-
-.option-circle {
-    @apply inline-flex items-center justify-center bg-gray-200 text-gray-700 rounded-full px-2 py-1 cursor-pointer hover:bg-gray-300 text-xs;
-    font-size: 1rem;
+    overflow-x: auto;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    border: 1px solid #e2e8f0;
-    background-color: aqua;
+    scrollbar-width: thin;
 }
 
 .custom-option .mat-option-checkbox {
@@ -34,23 +24,44 @@
 }
 
 .mat-icon {
-    @apply text-xs;
-    font-size: 0.5rem;
+    @apply text-xs font-bold my-auto;
+    font-size: 0.75rem;
+    background-color: #dce6e5;
+    color: black;
+    border-radius: 50%;
+    cursor: pointer;
+    text-align: center;
 }
 
-.mat-select-panel {
-    @apply max-w-lg;
-    position: absolute;
-    z-index: 1000;
-    direction: rtl;
+.mat-icon:hover {
+    background-color: #56c1c5;
 }
 
-.mat-form-field.ng-invalid .mat-form-field-label {
-    color: #f56565;
+.mat-form-field[disabled] {
+    @apply bg-gray-200;
+    pointer-events: none;
 }
 
-.mat-form-field.ng-valid .mat-form-field-label {
-    color: #48bb78;
+.mat-select[disabled] .mat-select-trigger {
+    background-color: #f5f5f5;
+    border-color: #e2e8f0;
+    color: #a0a0a0;
+}
+
+.mat-select[disabled] .mat-icon {
+    background-color: #e2e8f0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+.mat-select[disabled] .mat-option {
+    color: #a0a0a0;
+}
+
+.disabled-icon {
+    background-color: #e2e8e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
 }
 
 .rtl {
